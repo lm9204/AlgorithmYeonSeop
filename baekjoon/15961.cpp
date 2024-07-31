@@ -23,11 +23,7 @@ int main()
 			size++;
 	}
 
-	if (v[c])
-		coupon = 0;
-	else
-		coupon = 1;
-	ans = max(ans, size + coupon);
+	ans = max(ans, (!v[c] ? size + 1 : size));
 
 	for (int i = k; i < n + k; ++i)
 	{
@@ -36,11 +32,7 @@ int main()
 		if (!v[sushi[i % n]]++)
 			size++;
 
-		if (v[c])
-			coupon = 0;
-		else
-			coupon = 1;
-		ans = max(ans, size + coupon);
+		ans = max(ans, (!v[c] ? size + 1 : size));
 	}
 	cout << ans << "\n";
 	return (0);
